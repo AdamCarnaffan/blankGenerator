@@ -22,20 +22,41 @@ class User {
 }
 
 class Quiz {
+  
+  public $questions = [];
+  public $displayMode; // Practice or test
+  public $feedbackMode; // none, score or full (practice is full by default)
+  
+  public function __construct() {
+    
+  }
   // Made up of questions
   // has a mode (test - instant feedback, test - no feedback, test - score feedback, practice)
 }
 
 class Question {
-  // Made up of text + blanks
-  // ordered snippets Array
-  // ordered blanks array
+  
+  public $text = []; // ordered snippets Array
+  public $blanks = []; // ordered blanks array
   // alternate to build question with form
+  
+  public function __construct() {
+    
+  }
+  
 }
 
 class Blank {
   // has an answer as well as generation of possible accepted answers
   // has a language
+  
+  public $id;
+  public $answer;
+  
+  public function __construct() {
+    
+  }
+  
 }
 
  ?>
