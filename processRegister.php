@@ -1,6 +1,7 @@
-<?php 
+<?php
 
 require_once("dbConnect.php");
+require_once("class.php");
 
 if ($username == null || strlen($username) < 6) {
   return "Your username is too short";
@@ -36,6 +37,9 @@ $addUser = "INSERT INTO users (username, password) VALUES ('$username', '$hashed
 
 $conn->query($removeKey);
 $conn->query($addUser);
+$userID = $conn->last_index();
+
+$_SESSION['user'] = new User($userID);
 
 header('location: index.php');
 
